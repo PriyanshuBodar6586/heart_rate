@@ -37,8 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.6.5
   responsive_sizer: ^3.1.1
-  lite_rolling_switch:
-  torch_light:
+  water_drop_nav_bar: ^2.2.0+5
+
 
 dev_dependencies:
   flutter_test:
