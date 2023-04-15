@@ -16,7 +16,7 @@ class _HistoryState extends State<History> {
       appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading: false,
-        title: Text("Histoey",style: TextStyle(fontSize: 22.sp,color: Colors.blueAccent)),
+        title: Text("History",style: TextStyle(fontSize: 22.sp,color: Colors.blueAccent)),
         backgroundColor: Color(0xff00101E),
         elevation: 00,
       ),

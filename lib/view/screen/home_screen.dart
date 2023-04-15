@@ -66,16 +66,18 @@ class _Home_ScreenState extends State<Home_Screen> {
                   ),
                 ),
 
-                Container(
-                  height: 25.h,
-                  width: 45.w,
+                GestureDetector(
+                  child: Container(
+                    height: 25.h,
+                    width: 45.w,
 
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15)
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15)
+                    ),
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(25),
+                        child: Image.asset("assets/image/bpre.png",fit: BoxFit.fill)),
                   ),
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(25),
-                      child: Image.asset("assets/image/bpre.png",fit: BoxFit.fill)),
                 ),
               ],
             ),
