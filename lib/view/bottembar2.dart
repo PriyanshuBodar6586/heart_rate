@@ -1,13 +1,15 @@
-// ignore_for_file: library_private_types_in_public_api
+
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:heart_rate/view/screen/history.dart';
 import 'package:heart_rate/view/screen/info.dart';
-import 'package:heart_rate/view/screen/measure.dart';
+
 
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
+
+import 'screen/history2.dart';
 
 
 class Bottembar2 extends StatefulWidget {
@@ -44,7 +46,7 @@ class _Bottembar2State extends State<Bottembar2> {
           physics: const NeverScrollableScrollPhysics(),
           controller: pageController,
           children: const <Widget>[
-            Measure(),
+            History2(),
             History(),
             Info(),
 

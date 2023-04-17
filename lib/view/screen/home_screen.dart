@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:heart_rate/const/const.dart';
 import 'package:heart_rate/view/bottembar.dart';
+import 'package:heart_rate/view/bottembar2.dart';
 
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -67,6 +68,9 @@ class _Home_ScreenState extends State<Home_Screen> {
                 ),
 
                 GestureDetector(
+                  onTap: (){
+                    Get.to(const Bottembar2(),);
+                  },
                   child: Container(
                     height: 25.h,
                     width: 45.w,
