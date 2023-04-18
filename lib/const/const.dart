@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 backGround(Widget child) {
   return Container(
-    height: double.infinity,
-    width: double.infinity,
+    height: 100.h,
+    width: 100.w,
     // padding: const EdgeInsets.symmetric(horizontal: 10),
     decoration: const BoxDecoration(
       image: DecorationImage(

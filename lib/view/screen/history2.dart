@@ -4,6 +4,7 @@ import 'package:heart_rate/const/const.dart';
 import 'package:heart_rate/view/screen/adddata2.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+
 class History2 extends StatefulWidget {
   const History2({Key? key}) : super(key: key);
 
@@ -12,6 +13,7 @@ class History2 extends StatefulWidget {
 }
 
 class _History2State extends State<History2> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,4 +48,11 @@ class _History2State extends State<History2> {
       ),
     );
   }
+}
+class Task {
+  String task;
+  double taskvalue;
+  Color colorval;
+
+  Task(this.task, this.taskvalue, this.colorval);
 }

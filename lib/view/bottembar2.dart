@@ -10,6 +10,7 @@ import 'package:heart_rate/view/screen/info.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 
 import 'screen/history2.dart';
+import 'screen/trends2.dart';
 
 
 class Bottembar2 extends StatefulWidget {
@@ -47,7 +48,7 @@ class _Bottembar2State extends State<Bottembar2> {
           controller: pageController,
           children: const <Widget>[
             History2(),
-            History(),
+            Trends2(),
             Info(),
 
           ],
