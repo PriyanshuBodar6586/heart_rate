@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:heart_rate/const/const.dart';
-import 'package:heart_rate/view/screen/history2.dart';
+
 import 'package:heart_rate/view/utils.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -40,9 +40,9 @@ class _AddData2State extends State<AddData2> {
         firstDate: DateTime.now().add(const Duration(days: -365)),
         lastDate: DateTime.now().add(const Duration(days: 365)));
 
-    if (datepick != null) {
+    if (pick != null) {
       setState(() {
-        eventDate = pick!;
+        eventDate = pick;
       });
     }
   }
@@ -104,11 +104,11 @@ class _AddData2State extends State<AddData2> {
         centerTitle: true,
         title: Text("Add Data",
             style: TextStyle(fontSize: 22.sp, color: Colors.blueAccent)),
-        backgroundColor: Color(0xff00101E),
+        backgroundColor: const Color(0xff00101E),
       ),
       body: backGround(
         SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
@@ -150,7 +150,7 @@ class _AddData2State extends State<AddData2> {
                           borderRadius: BorderRadius.circular(15)),
                       child: Center(
                         child: Text(
-                          "${_eventTime}",
+                          _eventTime,
                           style: TextStyle(fontSize: 20.sp, color: Colors.white),
                         ),
                       ),
@@ -164,119 +164,126 @@ class _AddData2State extends State<AddData2> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text("Systolic",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.sp,
-                      )),
-                  Text("Diastolic   ",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.sp,
-                      )),
-                  Text("Puls   ",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.sp,
-                      )),
+                  Column(
+                    children: [
+                      Text("Systolic",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.sp,
+                          )),
+                      SizedBox(
+                        height: 30.h,
+                        width: 20.w,
+                        child: CupertinoPicker(
+                          itemExtent: 60,
+                          diameterRatio: 0.8,
+                          looping: true,
+
+                          onSelectedItemChanged: (index) =>
+                              setState(() => this.index = index),
+                          // selectionOverlay: Container(),
+                          selectionOverlay: CupertinoPickerDefaultSelectionOverlay(
+                            background: Colors.blue.withOpacity(0.2),
+                          ),
+                          children: Utils.modelBuilder<String>(
+                            values,
+                                (index, value) {
+                              final isSelected = this.index == index;
+                              final color = isSelected ? Colors.blue : Colors.white;
+
+                              return Center(
+                                child: Text(
+                                  value,
+                                  style: TextStyle(color: color, fontSize: 24),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text("Diastolic",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.sp,
+                          )),
+                      SizedBox(
+                        height: 30.h,
+                        width: 20.w,
+                        child: CupertinoPicker(
+                          itemExtent: 60,
+                          diameterRatio: 0.8,
+                          looping: true,
+                          onSelectedItemChanged: (index) =>
+                              setState(() => index1 = index),
+                          // selectionOverlay: Container(),
+                          selectionOverlay: CupertinoPickerDefaultSelectionOverlay(
+                            background: Colors.blue.withOpacity(0.2),
+                          ),
+                          children: Utils.modelBuilder<String>(
+                            valuess,
+                                (index, value) {
+                              final isSelected = index1 == index;
+                              final color = isSelected ? Colors.blue : Colors.white;
+                              return Center(
+                                child: Text(
+                                  value,
+                                  style: TextStyle(color: color, fontSize: 24),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text("Puls",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.sp,
+                          )),
+                      SizedBox(
+                        height: 30.h,
+                        width: 20.w,
+                        child: CupertinoPicker(
+                          itemExtent: 60,
+                          diameterRatio: 0.8,
+                          looping: true,
+                          onSelectedItemChanged: (index) =>
+                              setState(() => index2 = index),
+                          // selectionOverlay: Container(),
+                          selectionOverlay: CupertinoPickerDefaultSelectionOverlay(
+                            background: Colors.blue.withOpacity(0.2),
+                          ),
+                          children: Utils.modelBuilder<String>(
+                            valuesss,
+                                (index, value) {
+                              final isSelected = index2 == index;
+                              final color = isSelected ? Colors.blue : Colors.white;
+
+                              return Center(
+                                child: Text(
+                                  value,
+                                  style: TextStyle(color: color, fontSize: 24),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    height: 30.h,
-                    width: 20.w,
-                    child: CupertinoPicker(
-                      itemExtent: 60,
-                      diameterRatio: 0.8,
-                      looping: true,
 
-                      onSelectedItemChanged: (index) =>
-                          setState(() => this.index = index),
-                      // selectionOverlay: Container(),
-                      selectionOverlay: CupertinoPickerDefaultSelectionOverlay(
-                        background: Colors.blue.withOpacity(0.2),
-                      ),
-                      children: Utils.modelBuilder<String>(
-                        values,
-                        (index, value) {
-                          final isSelected = this.index == index;
-                          final color = isSelected ? Colors.blue : Colors.white;
-
-                          return Center(
-                            child: Text(
-                              value,
-                              style: TextStyle(color: color, fontSize: 24),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                    width: 20.w,
-                    child: CupertinoPicker(
-                      itemExtent: 60,
-                      diameterRatio: 0.8,
-                      looping: true,
-                      onSelectedItemChanged: (index) =>
-                          setState(() => this.index1 = index),
-                      // selectionOverlay: Container(),
-                      selectionOverlay: CupertinoPickerDefaultSelectionOverlay(
-                        background: Colors.blue.withOpacity(0.2),
-                      ),
-                      children: Utils.modelBuilder<String>(
-                        valuess,
-                        (index, value) {
-                          final isSelected = index1 == index;
-                          final color = isSelected ? Colors.blue : Colors.white;
-                          print(value);
-                          return Center(
-                            child: Text(
-                              value,
-                              style: TextStyle(color: color, fontSize: 24),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                    width: 20.w,
-                    child: CupertinoPicker(
-                      itemExtent: 60,
-                      diameterRatio: 0.8,
-                      looping: true,
-                      onSelectedItemChanged: (index) =>
-                          setState(() => index2 = index),
-                      // selectionOverlay: Container(),
-                      selectionOverlay: CupertinoPickerDefaultSelectionOverlay(
-                        background: Colors.blue.withOpacity(0.2),
-                      ),
-                      children: Utils.modelBuilder<String>(
-                        valuesss,
-                        (index, value) {
-                          final isSelected = index2 == index;
-                          final color = isSelected ? Colors.blue : Colors.white;
-
-                          return Center(
-                            child: Text(
-                              value,
-                              style: TextStyle(color: color, fontSize: 24),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                ],
-              ),
               Text(_currentValue.toString(),
                   style: TextStyle(fontSize: 25.sp, color: Colors.white)),
               Slider(
@@ -340,58 +347,5 @@ class _AddData2State extends State<AddData2> {
     );
   }
 
-  void datepick() async {
-    DateTime? pickedDate = await showDatePicker(
-      builder: (context, child) {
-        return Theme(
-          data: Theme.of(context).copyWith(
-            colorScheme: ColorScheme.light(
-              primary: Colors.blue, // <-- SEE HERE
-              onPrimary: Colors.white, // <-- SEE HERE
-              onSurface: Colors.black45,
-              // <-- SEE HERE
-            ),
-          ),
-          child: child!,
-        );
-      },
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(0),
-      lastDate: DateTime(2999),
-    );
-  }
 
-  void datepick2() async {
-    DateTime? pickedDate = await showDatePicker(
-      builder: (context, child) {
-        return Theme(
-          data: Theme.of(context).copyWith(
-            colorScheme: ColorScheme.light(
-              primary: Colors.blue, // <-- SEE HERE
-              onPrimary: Colors.white, // <-- SEE HERE
-              onSurface: Colors.black45,
-              // <-- SEE HERE
-            ),
-          ),
-          child: child!,
-        );
-      },
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(0),
-      lastDate: DateTime(2999),
-    );
-  }
-
-  void _showTimePicker() {
-    showTimePicker(
-      context: context,
-      initialTime: TimeOfDay.now(),
-    ).then((value) {
-      setState(() {
-        eventDate = value! as DateTime;
-      });
-    });
-  }
 }

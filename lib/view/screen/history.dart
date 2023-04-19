@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:heart_rate/const/const.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -10,6 +12,7 @@ class History extends StatefulWidget {
 }
 
 class _HistoryState extends State<History> {
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -22,9 +25,7 @@ class _HistoryState extends State<History> {
       ),
       body: backGround(
         Column(
-          children: [
-
-          ],
+        children: [],
         ),
       ),
     );

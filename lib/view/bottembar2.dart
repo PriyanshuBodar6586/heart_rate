@@ -1,14 +1,16 @@
 
 
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:heart_rate/view/screen/history.dart';
-import 'package:heart_rate/view/screen/info.dart';
+
 
 
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 
+import 'screen/analysis2.dart';
 import 'screen/history2.dart';
 import 'screen/trends2.dart';
 
@@ -17,6 +19,7 @@ class Bottembar2 extends StatefulWidget {
   const Bottembar2({Key? key}) : super(key: key);
 
   @override
+
   _Bottembar2State createState() => _Bottembar2State();
 }
 
@@ -49,7 +52,7 @@ class _Bottembar2State extends State<Bottembar2> {
           children: const <Widget>[
             History2(),
             Trends2(),
-            Info(),
+            Anaalysis2(),
 
           ],
         ),
@@ -71,13 +74,14 @@ class _Bottembar2State extends State<Bottembar2> {
             BarItem(
                 filledIcon: Icons.work_history_rounded,
                 outlinedIcon: Icons.work_history_outlined),
-            BarItem(
-              filledIcon: Icons.info,
-              outlinedIcon: Icons.info_outline_rounded,
-            ),
+
             BarItem(
               filledIcon: CupertinoIcons.chart_pie_fill,
               outlinedIcon: CupertinoIcons.chart_pie,
+            ),
+            BarItem(
+              filledIcon: Icons.info,
+              outlinedIcon: Icons.info_outline_rounded,
             ),
           ],
         ),

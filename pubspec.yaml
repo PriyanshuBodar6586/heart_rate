@@ -38,8 +38,12 @@ dependencies:
   get: ^4.6.5
   responsive_sizer: ^3.1.1
   water_drop_nav_bar: ^2.2.0+5
+  lottie: ^2.2.0
+  face_camera: ^0.0.6
+  torch_light: ^1.0.0
   charts_flutter:
   intl:
+  camera: ^0.10.4
 
 
 dev_dependencies:

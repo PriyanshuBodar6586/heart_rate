@@ -13,6 +13,7 @@ import 'package:heart_rate/question/Heart%20Rate/07.dart';
 import 'package:heart_rate/question/Heart%20Rate/08.dart';
 import 'package:heart_rate/question/Heart%20Rate/09.dart';
 
+
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class Info extends StatefulWidget {
@@ -65,7 +66,7 @@ class _InfoState extends State<Info> {
               SizedBox(
                 height: 2.h,
               ),
-              Text("Blood Pressure",style: TextStyle(color: Colors.blueAccent,fontSize: 25.sp)),
+              Text("Blood Pressure ",style: TextStyle(color: Colors.blueAccent,fontSize: 25.sp)),
               _listiteam((){ },"Blood Pressure Numbers"),
               _divider(),
               _listiteam((){ },"Blood Pressure Measurement mistakes"),
@@ -75,6 +76,7 @@ class _InfoState extends State<Info> {
               _listiteam((){ },"Home Blood Pressure Measurement"),
               _divider(),
               _listiteam((){ },"Exercise to Lower Blood Pressure"),
+
             ],
           ),
         ),

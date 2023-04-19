@@ -167,7 +167,7 @@ class _Trends2State extends State<Trends2> {
                             color: charts.MaterialPalette.purple.shadeDefault,
                             fontFamily: 'Georgia',
                             fontSize: 20),
-                      )
+                      ),
                     ],
                     defaultRenderer: charts.ArcRendererConfig(
                         arcWidth: 100,
