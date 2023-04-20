@@ -1,13 +1,15 @@
-import 'package:face_camera/face_camera.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:heart_rate/view/screen/home_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import 'view/screen/history2.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await FaceCamera.initialize();
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -23,6 +25,8 @@ void main() async {
             debugShowCheckedModeBanner: false,
             routes: {
               '/': (contest) => const Home_Screen(),
+              '/History2': (contest) => const History2(),
+
             },
           );
         },

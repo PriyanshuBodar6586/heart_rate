@@ -36,12 +36,9 @@ class _Trends2State extends State<Trends2> {
     ];
 
     var piedata = [
-      Task('Work', 35.8, const Color(0xff3366cc)),
-      Task('Eat', 8.3, const Color(0xff990099)),
-      Task('Commute', 10.8, const Color(0xff109618)),
-      Task('TV', 15.6, const Color(0xfffdbe19)),
-      Task('Sleep', 19.2, const Color(0xffff9900)),
-      Task('Other', 10.3, const Color(0xffdc3912)),
+      Task('Systolic', firstIndex, const Color(0xff188f00)),
+      Task('Diastolic', secondIndex, const Color(0xffa49100)),
+      Task('Puls', thirdIndex, const Color(0xffff2700)),
     ];
 
 
@@ -71,7 +68,7 @@ class _Trends2State extends State<Trends2> {
         data: data1,
         fillPatternFn: (_, __) => charts.FillPatternType.solid,
         fillColorFn: (Pollution pollution, _) =>
-            charts.ColorUtil.fromDartColor(const Color(0xff990099)),
+            charts.ColorUtil.fromDartColor(const Color(0xff8b00bd)),
       ),
     );
 
@@ -144,6 +141,13 @@ class _Trends2State extends State<Trends2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        automaticallyImplyLeading: false,
+        title: Text("Analysis",style: TextStyle(fontSize: 22.sp,color: Colors.blueAccent)),
+        backgroundColor: Color(0xff00101E),
+        elevation: 00,
+      ),
       body: backGround(
         Center(
           child: Column(
@@ -152,7 +156,6 @@ class _Trends2State extends State<Trends2> {
                 height: 10.h,
               ),
               Expanded(
-                flex: 2,
                 child: charts.PieChart<String>(_seriesPieData,
                     animate: true,
                     animationDuration: const Duration(seconds: 2),
@@ -163,10 +166,13 @@ class _Trends2State extends State<Trends2> {
                         horizontalFirst: false,
                         desiredMaxRows: 2,
 
-                        entryTextStyle: charts.TextStyleSpec(
-                            color: charts.MaterialPalette.purple.shadeDefault,
+                        entryTextStyle: const charts.TextStyleSpec(
+                            color: charts.MaterialPalette.white,
                             fontFamily: 'Georgia',
-                            fontSize: 20),
+                            fontSize: 20,
+
+
+                        ),
                       ),
                     ],
                     defaultRenderer: charts.ArcRendererConfig(

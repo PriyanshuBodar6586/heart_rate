@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:heart_rate/const/const.dart';
+import 'package:heart_rate/view/screen/measure.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class History extends StatefulWidget {
@@ -25,7 +26,10 @@ class _HistoryState extends State<History> {
       ),
       body: backGround(
         Column(
-        children: [],
+        children: [
+
+         // Text("$randomNumber",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.sp,color: Colors.white),)
+        ],
         ),
       ),
     );

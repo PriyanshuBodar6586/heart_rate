@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:heart_rate/const/const.dart';
@@ -8,6 +10,7 @@ class Anaalysis2 extends StatefulWidget {
 
   const Anaalysis2({Key? key,}) : super(key: key);
 
+  @override
   _Anaalysis2State createState() => _Anaalysis2State();
 }
 
@@ -18,29 +21,22 @@ class _Anaalysis2State extends State<Anaalysis2> {
 
   _generateData() {
     var data1 = [
-      Pollution(1980, 'USA', 30),
-      Pollution(1980, 'Asia', 40),
-      Pollution(1980, 'Europe', 10),
+      Pollution(1980, 'Systolic', firstIndex.toInt()),
+      Pollution(1980, 'Diastolic', secondIndex.toInt()),
+      Pollution(1980, 'Puls', thirdIndex.toInt()),
     ];
     var data2 = [
-      Pollution(1985, 'USA', 100),
-      Pollution(1980, 'Asia', 150),
-      Pollution(1985, 'Europe', 80),
+      Pollution(1985, 'Systolic', secondIndex.toInt()),
+      Pollution(1980, 'Diastolic',  thirdIndex.toInt()),
+      Pollution(1985, 'Puls',  firstIndex.toInt()),
     ];
     var data3 = [
-      Pollution(1985, 'USA', 200),
-      Pollution(1980, 'Asia', 300),
-      Pollution(1985, 'Europe', 180),
+      Pollution(1985, 'Systolic',  thirdIndex.toInt()),
+      Pollution(1980, 'Diastolic',  firstIndex.toInt()),
+      Pollution(1985, 'Puls',  secondIndex.toInt()),
     ];
 
-    var piedata = [
-      Task('Work', 35.8, Color(0xff3366cc)),
-      Task('Eat', 8.3, Color(0xff990099)),
-      Task('Commute', 10.8, Color(0xff109618)),
-      Task('TV', 15.6, Color(0xfffdbe19)),
-      Task('Sleep', 19.2, Color(0xffff9900)),
-      Task('Other', 10.3, Color(0xffdc3912)),
-    ];
+
 
     var linesalesdata = [
       Sales(0, 45),
@@ -76,7 +72,7 @@ class _Anaalysis2State extends State<Anaalysis2> {
         data: data1,
         fillPatternFn: (_, __) => charts.FillPatternType.solid,
         fillColorFn: (Pollution pollution, _) =>
-            charts.ColorUtil.fromDartColor(Color(0xff990099)),
+            charts.ColorUtil.fromDartColor(const Color(0xff990099)),
       ),
     );
 
@@ -88,7 +84,7 @@ class _Anaalysis2State extends State<Anaalysis2> {
         data: data2,
         fillPatternFn: (_, __) => charts.FillPatternType.solid,
         fillColorFn: (Pollution pollution, _) =>
-            charts.ColorUtil.fromDartColor(Color(0xff109618)),
+            charts.ColorUtil.fromDartColor(const Color(0xff109618)),
       ),
     );
 
@@ -100,25 +96,15 @@ class _Anaalysis2State extends State<Anaalysis2> {
         data: data3,
         fillPatternFn: (_, __) => charts.FillPatternType.solid,
         fillColorFn: (Pollution pollution, _) =>
-            charts.ColorUtil.fromDartColor(Color(0xffff9900)),
+            charts.ColorUtil.fromDartColor(const Color(0xffff9900)),
       ),
     );
 
-    _seriesPieData.add(
-      charts.Series(
-        domainFn: (Task task, _) => task.task,
-        measureFn: (Task task, _) => task.taskvalue,
-        colorFn: (Task task, _) =>
-            charts.ColorUtil.fromDartColor(task.colorval),
-        id: 'Air Pollution',
-        data: piedata,
-        labelAccessorFn: (Task row, _) => '${row.taskvalue}',
-      ),
-    );
+
 
     _seriesLineData.add(
       charts.Series(
-        colorFn: (__, _) => charts.ColorUtil.fromDartColor(Color(0xff990099)),
+        colorFn: (__, _) => charts.ColorUtil.fromDartColor(const Color(0xff990099)),
         id: 'Air Pollution',
         data: linesalesdata,
         domainFn: (Sales sales, _) => sales.yearval,
@@ -127,7 +113,7 @@ class _Anaalysis2State extends State<Anaalysis2> {
     );
     _seriesLineData.add(
       charts.Series(
-        colorFn: (__, _) => charts.ColorUtil.fromDartColor(Color(0xff109618)),
+        colorFn: (__, _) => charts.ColorUtil.fromDartColor(const Color(0xff109618)),
         id: 'Air Pollution',
         data: linesalesdata1,
         domainFn: (Sales sales, _) => sales.yearval,
@@ -136,7 +122,7 @@ class _Anaalysis2State extends State<Anaalysis2> {
     );
     _seriesLineData.add(
       charts.Series(
-        colorFn: (__, _) => charts.ColorUtil.fromDartColor(Color(0xffff9900)),
+        colorFn: (__, _) => charts.ColorUtil.fromDartColor(const Color(0xffff9900)),
         id: 'Air Pollution',
         data: linesalesdata2,
         domainFn: (Sales sales, _) => sales.yearval,
@@ -158,25 +144,28 @@ class _Anaalysis2State extends State<Anaalysis2> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-
+      appBar: AppBar(
+        centerTitle: true,
+        automaticallyImplyLeading: false,
+        title: Text("Analysis",style: TextStyle(fontSize: 22.sp,color: Colors.blueAccent)),
+        backgroundColor: const Color(0xff00101E),
+        elevation: 00,
+      ),
         body: backGround(
           Center(
              child: Column(
                children: <Widget>[
-                 SizedBox(
-                   height: 10.h,
-                 ),
+
 
                  Expanded(
-                   flex: 2,
                    child: charts.BarChart(
                      _seriesData,
                      animate: true,
-
                      barGroupingType: charts.BarGroupingType.grouped,
                      //behaviors: [new charts.SeriesLegend()],
-                     animationDuration: Duration(seconds: 2),
-                     vertical: false,
+                     animationDuration: const Duration(seconds: 2),
+                     vertical: true,
+
                    ),
                  ),
                ],

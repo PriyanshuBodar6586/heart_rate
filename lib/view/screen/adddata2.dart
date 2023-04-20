@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:heart_rate/const/const.dart';
-
+import 'package:heart_rate/view/bottembar2.dart';
 import 'package:heart_rate/view/utils.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-
+import 'history2.dart';
 
 class AddData2 extends StatefulWidget {
   const AddData2({Key? key}) : super(key: key);
@@ -47,52 +47,6 @@ class _AddData2State extends State<AddData2> {
     }
   }
 
-  int index = 0;
-  int index1 = 0;
-  int index2 = 0;
-
-  static List<String> values = [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10',
-  ];
-  static List<String> valuess = [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10',
-    '11',
-    '12',
-  ];
-  static List<String> valuesss = [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10',
-    '11',
-    '12',
-    '13',
-    '14',
-  ];
   double _currentValue = 0;
 
   @override
@@ -151,7 +105,8 @@ class _AddData2State extends State<AddData2> {
                       child: Center(
                         child: Text(
                           _eventTime,
-                          style: TextStyle(fontSize: 20.sp, color: Colors.white),
+                          style:
+                              TextStyle(fontSize: 20.sp, color: Colors.white),
                         ),
                       ),
                     ),
@@ -166,12 +121,14 @@ class _AddData2State extends State<AddData2> {
                 children: [
                   Column(
                     children: [
-                      Text("Systolic",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20.sp,
-                          )),
+                      Text(
+                        "Systolic",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20.sp,
+                        ),
+                      ),
                       SizedBox(
                         height: 30.h,
                         width: 20.w,
@@ -179,19 +136,33 @@ class _AddData2State extends State<AddData2> {
                           itemExtent: 60,
                           diameterRatio: 0.8,
                           looping: true,
-
-                          onSelectedItemChanged: (index) =>
-                              setState(() => this.index = index),
-                          // selectionOverlay: Container(),
-                          selectionOverlay: CupertinoPickerDefaultSelectionOverlay(
+                          onSelectedItemChanged: (index) {
+                            setState(() {
+                              firstIndex = 40.0 + index.toDouble();
+                              condition();
+                              stage == "Hypotension"
+                                  ? _currentValue = 20
+                                  : stage == "Normal"
+                                      ? _currentValue = 40
+                                      : stage == "Hypotension Stage 1"
+                                          ? _currentValue = 60
+                                          : stage == "Hypotension Stage 2"
+                                              ? _currentValue = 80
+                                              : stage == "Hypotension Stage 3"
+                                                  ? _currentValue = 100
+                                                  : _currentValue = 100;
+                            });
+                          },
+                          selectionOverlay:
+                              CupertinoPickerDefaultSelectionOverlay(
                             background: Colors.blue.withOpacity(0.2),
                           ),
                           children: Utils.modelBuilder<String>(
-                            values,
-                                (index, value) {
-                              final isSelected = this.index == index;
-                              final color = isSelected ? Colors.blue : Colors.white;
-
+                            firstValue,
+                            (index, value) {
+                              final isSelected = firstIndex == index;
+                              final color =
+                                  isSelected ? Colors.blue : Colors.white;
                               return Center(
                                 child: Text(
                                   value,
@@ -219,17 +190,34 @@ class _AddData2State extends State<AddData2> {
                           itemExtent: 60,
                           diameterRatio: 0.8,
                           looping: true,
-                          onSelectedItemChanged: (index) =>
-                              setState(() => index1 = index),
-                          // selectionOverlay: Container(),
-                          selectionOverlay: CupertinoPickerDefaultSelectionOverlay(
+                          onSelectedItemChanged: (index) {
+                            setState(() {
+                              secondIndex = 40.0 + index.toDouble();
+                              print(index);
+                              condition();
+                              stage == "Hypotension"
+                                  ? _currentValue = 20
+                                  : stage == "Normal"
+                                      ? _currentValue = 40
+                                      : stage == "Hypotension Stage 1"
+                                          ? _currentValue = 60
+                                          : stage == "Hypotension Stage 2"
+                                              ? _currentValue = 80
+                                              : stage == "Hypotension Stage 3"
+                                                  ? _currentValue = 100
+                                                  : _currentValue = 100;
+                            });
+                          },
+                          selectionOverlay:
+                              CupertinoPickerDefaultSelectionOverlay(
                             background: Colors.blue.withOpacity(0.2),
                           ),
                           children: Utils.modelBuilder<String>(
-                            valuess,
-                                (index, value) {
-                              final isSelected = index1 == index;
-                              final color = isSelected ? Colors.blue : Colors.white;
+                            secondValue,
+                            (index, value) {
+                              final isSelected = secondIndex == index;
+                              final color =
+                                  isSelected ? Colors.blue : Colors.white;
                               return Center(
                                 child: Text(
                                   value,
@@ -257,18 +245,33 @@ class _AddData2State extends State<AddData2> {
                           itemExtent: 60,
                           diameterRatio: 0.8,
                           looping: true,
-                          onSelectedItemChanged: (index) =>
-                              setState(() => index2 = index),
-                          // selectionOverlay: Container(),
-                          selectionOverlay: CupertinoPickerDefaultSelectionOverlay(
+                          onSelectedItemChanged: (index) {
+                            setState(() {
+                              thirdIndex = 40.0 + index.toDouble();
+                              condition();
+                              stage == "Hypotension"
+                                  ? _currentValue = 20
+                                  : stage == "Normal"
+                                      ? _currentValue = 40
+                                      : stage == "Hypotension Stage 1"
+                                          ? _currentValue = 60
+                                          : stage == "Hypotension Stage 2"
+                                              ? _currentValue = 80
+                                              : stage == "Hypotension Stage 3"
+                                                  ? _currentValue = 100
+                                                  : _currentValue = 100;
+                            });
+                          },
+                          selectionOverlay:
+                              CupertinoPickerDefaultSelectionOverlay(
                             background: Colors.blue.withOpacity(0.2),
                           ),
                           children: Utils.modelBuilder<String>(
-                            valuesss,
-                                (index, value) {
-                              final isSelected = index2 == index;
-                              final color = isSelected ? Colors.blue : Colors.white;
-
+                            thirdValue,
+                            (index, value) {
+                              final isSelected = thirdIndex == index;
+                              final color =
+                                  isSelected ? Colors.blue : Colors.white;
                               return Center(
                                 child: Text(
                                   value,
@@ -283,23 +286,74 @@ class _AddData2State extends State<AddData2> {
                   ),
                 ],
               ),
-
-              Text(_currentValue.toString(),
-                  style: TextStyle(fontSize: 25.sp, color: Colors.white)),
+              Container(
+                alignment: Alignment.center,
+                height: 8.h,
+                width: 60.w,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                        color: stage == "Hypotension"
+                            ? Colors.blue
+                            : stage == "Normal"
+                                ? Colors.green
+                                : stage == "Hypotension Stage 1"
+                                    ? Colors.yellowAccent
+                                    : stage == "Hypotension Stage 2"
+                                        ? Colors.deepOrangeAccent
+                                        : stage == "Hypotension Stage 3"
+                                            ? Colors.red
+                                            : Colors.transparent,
+                        width: 4)),
+                child: Text(stage,
+                    style: TextStyle(
+                        color: stage == "Hypotension"
+                            ? Colors.blue
+                            : stage == "Normal"
+                                ? Colors.green
+                                : stage == "Hypotension Stage 1"
+                                    ? Colors.yellowAccent
+                                    : stage == "Hypotension Stage 2"
+                                        ? Colors.deepOrangeAccent
+                                        : stage == "Hypotension Stage 3"
+                                            ? Colors.red
+                                            : Colors.transparent,
+                        fontSize: 19.sp,
+                        fontWeight: FontWeight.bold)),
+              ),
+              SizedBox(
+                height: 1.h,
+              ),
               Slider(
                 value: _currentValue,
                 min: 0,
                 max: 100,
                 divisions: 10,
                 label: _currentValue.toString(),
-                activeColor: Colors.blueAccent,
-                thumbColor: Colors.blue,
+                activeColor: stage == "Hypotension"
+                    ? Colors.blue
+                    : stage == "Normal"
+                        ? Colors.green
+                        : stage == "Hypotension Stage 1"
+                            ? Colors.yellowAccent
+                            : stage == "Hypotension Stage 2"
+                                ? Colors.deepOrangeAccent
+                                : stage == "Hypotension Stage 3"
+                                    ? Colors.red
+                                    : Colors.transparent,
+                thumbColor: stage == "Hypotension"
+                    ? Colors.blue
+                    : stage == "Normal"
+                        ? Colors.green
+                        : stage == "Hypotension Stage 1"
+                            ? Colors.yellowAccent
+                            : stage == "Hypotension Stage 2"
+                                ? Colors.deepOrangeAccent
+                                : stage == "Hypotension Stage 3"
+                                    ? Colors.red
+                                    : Colors.transparent,
                 inactiveColor: Colors.white,
-                onChanged: (value) {
-                  setState(() {
-                    _currentValue = value;
-                  });
-                },
+                onChanged: (value) {},
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -316,14 +370,18 @@ class _AddData2State extends State<AddData2> {
                           borderRadius: BorderRadius.circular(15)),
                       child: Center(
                           child: Text(
-                            "Cancel",
-                            style: TextStyle(fontSize: 20.sp, color: Colors.white),
-                          )),
+                        "Cancel",
+                        style: TextStyle(fontSize: 20.sp, color: Colors.white),
+                      )),
                     ),
                   ),
                   GestureDetector(
                     onTap: () {
-
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) =>
+                                  const Bottembar2())) /*.then((_) => setState(() {}))*/;
                     },
                     child: Container(
                       height: 6.5.h,
@@ -333,9 +391,9 @@ class _AddData2State extends State<AddData2> {
                           borderRadius: BorderRadius.circular(15)),
                       child: Center(
                           child: Text(
-                            "Save",
-                            style: TextStyle(fontSize: 20.sp, color: Colors.white),
-                          )),
+                        "Save",
+                        style: TextStyle(fontSize: 20.sp, color: Colors.white),
+                      )),
                     ),
                   ),
                 ],
@@ -347,5 +405,27 @@ class _AddData2State extends State<AddData2> {
     );
   }
 
-
+  condition() {
+    if (firstIndex >= 40 && firstIndex <= 80) {
+      setState(() {
+        stage = "Hypotension"; //blue
+      });
+    } else if (firstIndex >= 81 && firstIndex <= 120) {
+      setState(() {
+        stage = "Normal"; //Green
+      });
+    } else if (firstIndex >= 121 && firstIndex <= 150) {
+      setState(() {
+        stage = "Hypotension Stage 1"; //yellow
+      });
+    } else if (firstIndex >= 151 && firstIndex <= 175) {
+      setState(() {
+        stage = "Hypotension Stage 2"; //orange
+      });
+    } else if (firstIndex >= 176 && firstIndex <= 200) {
+      setState(() {
+        stage = "Hypotension Stage 3"; //red
+      });
+    }
+  }
 }

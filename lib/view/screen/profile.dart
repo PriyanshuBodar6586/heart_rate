@@ -17,21 +17,21 @@ class _ProfileState extends State<Profile> {
         centerTitle: true,
         automaticallyImplyLeading: false,
         title: Text("Setting",style: TextStyle(fontSize: 22.sp,color: Colors.blueAccent)),
-        backgroundColor: Color(0xff00101E),
+        backgroundColor: const Color(0xff00101E),
         elevation: 00,
       ),
 
       body: backGround(
         SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
 
-              _listiteam((){ },"Language",Icons.language),
-              Divider(height: 2,endIndent: 7.w,thickness: 2,indent: 7.w,color: Colors.blueAccent.withOpacity(0.4)),
-              _listiteam((){ },"Export as File",Icons.file_upload_outlined),
-              Divider(height: 2,endIndent: 7.w,thickness: 2,indent: 7.w,color: Colors.blueAccent.withOpacity(0.4)),
+
+
+
+
               _listiteam((){ },"Rate us",Icons.star_border_purple500_outlined),
               Divider(height: 2,endIndent: 7.w,thickness: 2,indent: 7.w,color: Colors.blueAccent.withOpacity(0.4)),
 

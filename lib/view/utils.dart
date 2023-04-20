@@ -12,13 +12,6 @@ class Utils {
           .toList();
 
 /// Alternativaly: You can display an Android Styled Bottom Sheet instead of an iOS styled bottom Sheet
-// static void showSheet(
-//   BuildContext context, {
-//   required Widget child,
-// }) =>
-//     showModalBottomSheet(
-//       context: context,
-//       builder: (context) => child,
-//     );
+
 
 }

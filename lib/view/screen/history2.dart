@@ -12,6 +12,37 @@ class History2 extends StatefulWidget {
 }
 
 class _History2State extends State<History2> {
+  static DateTime eventDate = DateTime.now();
+
+  static var now = TimeOfDay.fromDateTime(DateTime.parse(eventDate.toString()));
+
+  String _eventTime = now.toString().substring(10, 15);
+
+  Future _pickTime() async {
+    TimeOfDay? timepick =
+        await showTimePicker(context: context, initialTime: TimeOfDay.now());
+
+    if (timepick != null) {
+      setState(() {
+        _eventTime = timepick.toString().substring(10, 15);
+      });
+    }
+  }
+
+  Future _pickDate() async {
+    DateTime? pick = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime.now().add(const Duration(days: -365)),
+        lastDate: DateTime.now().add(const Duration(days: 365)));
+
+    if (pick != null) {
+      setState(() {
+        eventDate = pick;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,141 +55,196 @@ class _History2State extends State<History2> {
         elevation: 00,
       ),
       body: backGround(
-        Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Container(
-                    height: 19.h,
-                    width: 100.h,
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.5.h),
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(color: Colors.blue, width: 3),
-                    ),
-                    child: Column(
+        SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+
+              Container(
+                height: 29.h,
+                width: 100.w,
+                margin: const EdgeInsets.all(10),
+                padding:
+                    EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.5.h),
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(color: Colors.blue, width: 3),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        Text(
+                          "${eventDate.day}-${eventDate.month}-${eventDate.year}",
+                          style: TextStyle(
+                              fontSize: 20.sp, color: Colors.white),
+                        ),
+                        Text(
+                          "${_eventTime}",
+                          style: TextStyle(
+                              fontSize: 20.sp, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
                           children: [
                             Text(
-                              "Apr 19,2023  10:21",
+                              " Systolic ",
                               style: TextStyle(
-                                  color: Colors.white, fontSize: 18.sp),
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.sp,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 1.h,
                             ),
                             Text(
-                              "Normal",
+                              "${firstIndex.toInt()}",
                               style: TextStyle(
-                                  color: Colors.white, fontSize: 18.sp),
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.sp,
+                              ),
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        Column(
                           children: [
-                            Column(
-                              children: [
-                                Text(
-                                  " Systolic ",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20.sp,
-                                  ),
-                                ),
-                            SizedBox(height: 1.h,),
-                            Text("100",
+                            Text(
+                              " Diastolic ",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.sp,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 1.h,
+                            ),
+                            Text(
+                              "${secondIndex.toInt()}",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.sp,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(" Puls ",
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20.sp,
                                 )),
-
-                              ],
-
+                            SizedBox(
+                              height: 1.h,
                             ),
-
-                            Column(
-                              children: [
-                                Text(" Diastolic ",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.sp,
-                                    )),
-                                SizedBox(height: 1.h,),
-                                Text("150",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.sp,
-                                    )),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                Text(" Puls ",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.sp,
-                                    )),
-                                SizedBox(height: 1.h,),
-                                Text("78",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.sp,
-                                    )),
-                              ],
+                            Text(
+                              "${thirdIndex.toInt()}",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.sp,
+                              ),
                             ),
                           ],
                         ),
-
                       ],
                     ),
-                  ),
-                ),
-              ],
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.to(const AddData2());
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 7.h,
-                  width: 100.w,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "+ Add Data",
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    Text(
+                      stage,
                       style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.sp,
-                          fontWeight: FontWeight.bold),
+                          color: stage == "Hypotension"
+                              ? Colors.blue
+                              : stage == "Normal"
+                                  ? Colors.green
+                                  : stage == "Hypotension Stage 1"
+                                      ? Colors.yellowAccent
+                                      : stage == "Hypotension Stage 2"
+                                          ? Colors.deepOrangeAccent
+                                          : stage == "Hypotension Stage 3"
+                                              ? Colors.red
+                                              : Colors.transparent,
+                          fontSize: 21.sp),
+                    ),
+                  ],
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Get.to(const AddData2());
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 7.h,
+                    width: 100.w,
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "+ Add Data",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+              Container(
+                height: 35.h,
+                width: 95.w,
+                color: Colors.yellowAccent,
+                child: const Center(child: Text("AD space",style: TextStyle(fontWeight: FontWeight.bold))),
+              ),
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  condition() {
+    if (firstIndex >= 40 && firstIndex <= 80) {
+      setState(() {
+        stage = "Hypotension"; //blue
+      });
+    } else if (firstIndex >= 81 && firstIndex <= 120) {
+      setState(() {
+        stage = "Normal"; //Green
+      });
+    } else if (firstIndex >= 121 && firstIndex <= 150) {
+      setState(() {
+        stage = "Hypotension Stage 1"; //yellow
+      });
+    } else if (firstIndex >= 151 && firstIndex <= 175) {
+      setState(() {
+        stage = "Hypotension Stage 2"; //orange
+      });
+    } else if (firstIndex >= 176 && firstIndex <= 200) {
+      setState(() {
+        stage = "Hypotension Stage 3"; //red
+      });
+    }
   }
 }
 

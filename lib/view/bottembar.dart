@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:heart_rate/view/screen/history.dart';
+import 'package:heart_rate/view/screen/home_screen.dart';
 import 'package:heart_rate/view/screen/info.dart';
 import 'package:heart_rate/view/screen/measure.dart';
 import 'package:heart_rate/view/screen/profile.dart';
@@ -28,60 +28,68 @@ class _BottembarState extends State<Bottembar> {
 
   @override
   Widget build(BuildContext context) {
-    /// [AnnotatedRegion<SystemUiOverlayStyle>] only for android black navigation bar. 3 button navigation control (legacy)
+
     return AnnotatedRegion<SystemUiOverlayStyle>(
 
-      value: SystemUiOverlayStyle(
+      value: const SystemUiOverlayStyle(
         systemNavigationBarColor: Colors.black,
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
-      child: Scaffold(
-        // backgroundColor: Colors.grey,
-        body: PageView(
+      child: WillPopScope(
+        onWillPop: () => back(),
+        child: Scaffold(
+
+          body: PageView(
 
 
-          physics: const NeverScrollableScrollPhysics(),
-          controller: pageController,
-          children: const <Widget>[
-            Measure(),
-            History(),
-            Info(),
-            Profile(),
-          ],
-        ),
-        bottomNavigationBar: WaterDropNavBar(
-          backgroundColor: Colors.black,
+            physics: const NeverScrollableScrollPhysics(),
+            controller: pageController,
+            children: const <Widget>[
+              Measure(),
+              Info(),
+              Profile(),
+            ],
+          ),
+          bottomNavigationBar: WaterDropNavBar(
+            backgroundColor: Colors.black,
 
 waterDropColor: Colors.blue,
-          onItemSelected: (int index) {
-            setState(() {
-              selectedIndex = index;
-            });
-            pageController.animateToPage(selectedIndex,
-                duration: const Duration(milliseconds: 400),
-                curve: Curves.easeOutQuad);
-          },
-          selectedIndex: selectedIndex,
-          barItems: <BarItem>[
-            BarItem(
-              filledIcon: Icons.monitor_heart_rounded,
-              outlinedIcon: Icons.monitor_heart_outlined,
-            ),
-            BarItem(
-                filledIcon: Icons.work_history_rounded,
-                outlinedIcon: Icons.work_history_outlined),
-            BarItem(
-              filledIcon: Icons.info,
-              outlinedIcon: Icons.info_outline_rounded,
-            ),
-            BarItem(
+            onItemSelected: (int index) {
+              setState(() {
+                selectedIndex = index;
+              });
+              pageController.animateToPage(selectedIndex,
+                  duration: const Duration(milliseconds: 400),
+                  curve: Curves.easeOutQuad);
+            },
+            selectedIndex: selectedIndex,
+            barItems: <BarItem>[
+              BarItem(
+                filledIcon: Icons.monitor_heart_rounded,
+                outlinedIcon: Icons.monitor_heart_outlined,
+              ),
 
-              filledIcon: Icons.person,
-              outlinedIcon: Icons.person_outline_rounded,
-            ),
-          ],
+              BarItem(
+                filledIcon: Icons.info,
+                outlinedIcon: Icons.info_outline_rounded,
+              ),
+              BarItem(
+
+                filledIcon: Icons.person,
+                outlinedIcon: Icons.person_outline_rounded,
+              ),
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  back() {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const Home_Screen(),
+        ));
   }
 }
