@@ -48,6 +48,16 @@ class _Question8State extends State<Question8> {
               SizedBox(
                 height: 2.h,
               ),
+              Container(
+                alignment: Alignment.center,
+                height: 25.h,
+                width: 100.w,
+                color: Colors.amber,
+                child: Text("Ad space"),
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text("""👉 Ways to reduce sudden changes in heart rate
@@ -65,6 +75,14 @@ include:
 
 👉 Performing vagal maneuvers""",style: TextStyle(color: Colors.white,fontSize: 19.sp),),
               ),
+              Container(
+                alignment: Alignment.center,
+                height: 25.h,
+                width: 100.w,
+                color: Colors.amber,
+                child: Text("Ad space"),
+              ),
+
             ],
           ),
         ),

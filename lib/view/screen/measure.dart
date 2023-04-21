@@ -51,7 +51,56 @@ class _MeasureState extends State<Measure> {
                     },
                   );
 
-                  Get.to(const Lottie_Screen());
+                  Get.defaultDialog(
+                    barrierDismissible: false,
+
+                    backgroundColor: Colors.blue,
+                    title: "Information",
+                    titleStyle: const TextStyle(color: Colors.white),
+                    actions: [
+                      ElevatedButton(
+                        style: ButtonStyle(
+                            shape: MaterialStateProperty.all(const StadiumBorder()),
+                            backgroundColor:
+                            MaterialStateProperty.all(const Color(0xFFFFFFFF))),
+
+                        onPressed: ()  {
+                          Get.to(const Lottie_Screen());
+
+                        },
+                        child: const Text(
+                          "Start",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ],
+                    content: SizedBox(
+                      height: 32.h,
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 20.h,
+                            width: 20.h,
+                            child: ClipRRect(borderRadius: BorderRadius.circular(15),
+                                    child: Image.asset('assets/image/dilog.png')),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.all(10),
+                            child: Text(
+                              "Tap to start  Scan Your Hand & start to Measurement.",
+                              style: TextStyle(
+                                fontSize: 18.sp,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+
                 },
                 child: Container(
                   height: 45.h,

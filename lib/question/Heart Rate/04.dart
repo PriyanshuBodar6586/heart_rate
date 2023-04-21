@@ -49,6 +49,16 @@ class _Question4State extends State<Question4> {
               SizedBox(
                 height: 2.h,
               ),
+              Container(
+                alignment: Alignment.center,
+                height: 25.h,
+                width: 100.w,
+                color: Colors.amber,
+                child: Text("Ad space"),
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text("""👉 You get the most benefits when you exercise in your "target heart rate zone." Usually, this is when your heart rate (pulse) is 60% to 80% of your maximum. In some cases, your doctor may decrease your target heart rate zone to around50%.
@@ -59,6 +69,14 @@ class _Question4State extends State<Question4> {
 
 👉 When you exercise, take a break and check your pulse regularly to find out whether you're in your target zone. If your pulse is below your target zone, step up the intensity of your workout.""",style: TextStyle(color: Colors.white,fontSize: 19.sp),),
               ),
+              Container(
+                alignment: Alignment.center,
+                height: 25.h,
+                width: 100.w,
+                color: Colors.amber,
+                child: Text("Ad space"),
+              ),
+
             ],
           ),
         ),

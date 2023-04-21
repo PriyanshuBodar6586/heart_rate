@@ -12,6 +12,11 @@ import 'package:heart_rate/question/Heart%20Rate/06.dart';
 import 'package:heart_rate/question/Heart%20Rate/07.dart';
 import 'package:heart_rate/question/Heart%20Rate/08.dart';
 import 'package:heart_rate/question/Heart%20Rate/09.dart';
+import 'package:heart_rate/question/blood/1.dart';
+import 'package:heart_rate/question/blood/2.dart';
+import 'package:heart_rate/question/blood/3.dart';
+import 'package:heart_rate/question/blood/4.dart';
+import 'package:heart_rate/question/blood/5.dart';
 
 
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -67,15 +72,15 @@ class _InfoState extends State<Info> {
                 height: 2.h,
               ),
               Text("Blood Pressure ",style: TextStyle(color: Colors.blueAccent,fontSize: 25.sp)),
-              _listiteam((){ },"Blood Pressure Numbers"),
+              _listiteam((){Get.to(Bquestion1());},"Blood Pressure Numbers"),
               _divider(),
-              _listiteam((){ },"Blood Pressure Measurement mistakes"),
+              _listiteam((){Get.to(Bquestion2());},"Blood Pressure Measurement mistakes"),
               _divider(),
-              _listiteam((){ },"Blood Pressure Misbelief"),
+              _listiteam((){Get.to(Bquestion3()); },"Blood Pressure Misbelief"),
               _divider(),
-              _listiteam((){ },"Home Blood Pressure Measurement"),
+              _listiteam((){Get.to(Bquestion4()); },"Home Blood Pressure Measurement"),
               _divider(),
-              _listiteam((){ },"Exercise to Lower Blood Pressure"),
+              _listiteam((){ Get.to(Bquestion5());},"Exercise to Lower Blood Pressure"),
 
             ],
           ),

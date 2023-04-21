@@ -48,6 +48,16 @@ class _Question9State extends State<Question9> {
               SizedBox(
                 height: 2.h,
               ),
+              Container(
+                alignment: Alignment.center,
+                height: 25.h,
+                width: 100.w,
+                color: Colors.amber,
+                child: Text("Ad space"),
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text("""👉 Here are simple ways to help relieve stress and anxiety:
@@ -72,6 +82,16 @@ class _Question9State extends State<Question9> {
 
 7. Spend time with your loved ones and family
 👉 Social support from friends and family can help you through a stressful time. Being part of a network of friends gives you a sense of belonging and self-worth, which can help during difficult times.""",style: TextStyle(color: Colors.white,fontSize: 19.sp),),
+              ),
+              Container(
+                alignment: Alignment.center,
+                height: 25.h,
+                width: 100.w,
+                color: Colors.amber,
+                child: Text("Ad space"),
+              ),
+              SizedBox(
+                height: 2.h,
               ),
             ],
           ),

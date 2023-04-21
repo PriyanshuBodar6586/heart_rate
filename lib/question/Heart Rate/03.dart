@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:heart_rate/const/const.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -28,7 +27,7 @@ class _Question3State extends State<Question3> {
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
-              Image.asset("assets/image/Resting.png",height: 32.h),
+              Image.asset("assets/image/Resting.png", height: 32.h),
               Divider(
                 height: 2,
                 color: Colors.blueAccent.withOpacity(0.4),
@@ -49,14 +48,34 @@ class _Question3State extends State<Question3> {
               SizedBox(
                 height: 2.h,
               ),
+              Container(
+                alignment: Alignment.center,
+                height: 25.h,
+                width: 100.w,
+                color: Colors.amber,
+                child: Text("Ad space"),
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text("""👉 Resting heart rate (RHR) -- the number of times your heart beats per minute at rest -- is a quick way to gauge how efficiently your heart is working. What's considered normal can vary widely from person to person, but in general, your RHR should fall between 60 and 100 beats per minute. 
+                child: Text(
+                  """👉 Resting heart rate (RHR) -- the number of times your heart beats per minute at rest -- is a quick way to gauge how efficiently your heart is working. What's considered normal can vary widely from person to person, but in general, your RHR should fall between 60 and 100 beats per minute. 
 
 👉 If your RHR is consistently above 100 beats per minute (a condition known as tachycardia), you should consult a doctor, especially if you're experiencing other symptoms, such as chest tightness, fatigue or shortness of breath. 
 
-👉 A high resting heart (ie >100 bpm) can mean many things," says cardiologist Jennifer Haythe, MD, co-director of Columbia Women's Heart Center. "You may be dehydrated, have a poor level of physical fitness, or it could be a sign of something more serious with your heart or lungs.""",style: TextStyle(color: Colors.white,fontSize: 19.sp),),
-              )
+👉 A high resting heart (ie >100 bpm) can mean many things," says cardiologist Jennifer Haythe, MD, co-director of Columbia Women's Heart Center. "You may be dehydrated, have a poor level of physical fitness, or it could be a sign of something more serious with your heart or lungs.""",
+                  style: TextStyle(color: Colors.white, fontSize: 19.sp),
+                ),
+              ),
+              Container(
+                alignment: Alignment.center,
+                height: 25.h,
+                width: 100.w,
+                color: Colors.amber,
+                child: Text("Ad space"),
+              ),
             ],
           ),
         ),

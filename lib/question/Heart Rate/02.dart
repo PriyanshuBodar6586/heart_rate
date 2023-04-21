@@ -49,6 +49,16 @@ class _Question2State extends State<Question2> {
               SizedBox(
                 height: 2.h,
               ),
+              Container(
+                alignment: Alignment.center,
+                height: 25.h,
+                width: 100.w,
+                color: Colors.amber,
+                child: Text("Ad space"),
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text("""👉 Factors Affecting Heart Rate
@@ -82,7 +92,14 @@ class _Question2State extends State<Question2> {
 10. Recent illness — or — a signal of impending illness. You guessed it!
 
 11. Medication – depending upon the medication, heart rate can either decrease or increase. Be certain to ask your physician about any medication you are taking and its effects on your exercise heart rate.""",style: TextStyle(color: Colors.white,fontSize: 19.sp),),
-              )
+              ),
+              Container(
+                alignment: Alignment.center,
+                height: 25.h,
+                width: 100.w,
+                color: Colors.amber,
+                child: Text("Ad space"),
+              ),
             ],
           ),
         ),

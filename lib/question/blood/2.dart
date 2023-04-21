@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:heart_rate/const/const.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class Question6 extends StatefulWidget {
-  const Question6({Key? key}) : super(key: key);
+class Bquestion2 extends StatefulWidget {
+  const Bquestion2({Key? key}) : super(key: key);
 
   @override
-  State<Question6> createState() => _Question6State();
+  State<Bquestion2> createState() => _Bquestion2State();
 }
 
-class _Question6State extends State<Question6> {
+class _Bquestion2State extends State<Bquestion2> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading: false,
-        title: Text("High Heart Rate Complication",
+        title: Text(" measurement mistakes",
             style: TextStyle(fontSize: 20.sp, color: Colors.blueAccent)),
         backgroundColor: const Color(0xff00101E),
         elevation: 00,
@@ -27,7 +27,7 @@ class _Question6State extends State<Question6> {
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
-              Image.asset("assets/image/children.png", height: 35.h),
+              Image.asset("assets/image/b01.png",height: 35.h),
               Divider(
                 height: 2,
                 color: Colors.blueAccent.withOpacity(0.4),
@@ -60,22 +60,16 @@ class _Question6State extends State<Question6> {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  """👉 Newborns 0 to 1 month old: 70 to 190 beats per minute
+                child: Text("""👉 When getting blood pressure measured, both feet need to rest on the ground or a stool. The back needs to be supported, as well as the arm, which should be propped at heart level. Many times, these procedures fail to be observed.
+                
+             Other common mistakes include:
+• Falling to rest before a measurement. Sitting quietly for about five minutes can help relax the body.
 
-👉 infants 1 to 11 months old: 80 to 160 beats per minute
+• Placing a cuff over clothing. Depending on the thickness of the sleeve, clothing can add up to 50 mmHg to a reading. The blood pressure cuff needs to be placed on a bare arm - so roll up your sleeve or come wearing short sleeves
 
-👉 Children 1 to 2 years old: 80 to 130 beats per minute
+• Using the wrong sized cuff. Squeezing an arm into a cuff that's too small can add anywhere between 2 mmHg and 10 mmHg to a measurement.
 
-👉 Children 3 to 4 years old: 80 to 120 beats per minute
-
-👉 Children 5 to 6 years old: 75 to 115 beats per minute
-
-👉 Children 7 to 9 years old: 70 to 110 beats per minute
-
-👉 Children 10 years and older, and adults (including seniors): 60 to 100 beats per minute.""",
-                  style: TextStyle(color: Colors.white, fontSize: 19.sp),
-                ),
+•Engaging in conversation. Avoid the small talk. Even active listening can add 10 mmHg.""",style: TextStyle(color: Colors.white,fontSize: 19.sp),),
               ),
               Container(
                 alignment: Alignment.center,
@@ -83,6 +77,9 @@ class _Question6State extends State<Question6> {
                 width: 100.w,
                 color: Colors.amber,
                 child: Text("Ad space"),
+              ),
+              SizedBox(
+                height: 2.h,
               ),
             ],
           ),

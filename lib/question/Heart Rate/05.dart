@@ -27,7 +27,7 @@ class _Question5State extends State<Question5> {
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
-              Image.asset("assets/image/heart.png",height: 35.h),
+              Image.asset("assets/image/heart.png", height: 35.h),
               Divider(
                 height: 2,
                 color: Colors.blueAccent.withOpacity(0.4),
@@ -48,9 +48,20 @@ class _Question5State extends State<Question5> {
               SizedBox(
                 height: 2.h,
               ),
+              Container(
+                alignment: Alignment.center,
+                height: 25.h,
+                width: 100.w,
+                color: Colors.amber,
+                child: Text("Ad space"),
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text("""👉 Tachycardia is the medical term for a heart rate over 100 beats a minute. Many types of irregular heart rhythms (arrhythmias) can cause tachycardia.
+                child: Text(
+                  """👉 Tachycardia is the medical term for a heart rate over 100 beats a minute. Many types of irregular heart rhythms (arrhythmias) can cause tachycardia.
 
 👉 A fast heart rate isn't always a concern. For instance, the heart rate typically rises during exercise or as a response to stress.
 
@@ -88,8 +99,18 @@ Sudden death: This usually only occurs with ventricular tachycardia or ventricul
 
 👉 The overall health of the person
 
-👉 Any other heart conditions they may have.""",style: TextStyle(color: Colors.white,fontSize: 19.sp),),
+👉 Any other heart conditions they may have.""",
+                  style: TextStyle(color: Colors.white, fontSize: 19.sp),
+                ),
               ),
+              Container(
+                alignment: Alignment.center,
+                height: 25.h,
+                width: 100.w,
+                color: Colors.amber,
+                child: Text("Ad space"),
+              ),
+
             ],
           ),
         ),

@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:heart_rate/const/const.dart';
+import 'package:heart_rate/view/bottembar.dart';
 import 'package:lottie/lottie.dart';
 
 import 'package:torch_light/torch_light.dart';
@@ -29,7 +30,7 @@ class _Lottie_ScreenState extends State<Lottie_Screen> {
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 8), () {
         torchLightOff();
-      Get.back();
+      Get.off(const Bottembar());
 
     });
     return WillPopScope(

@@ -48,6 +48,16 @@ class _Question7State extends State<Question7> {
               SizedBox(
                 height: 2.h,
               ),
+              Container(
+                alignment: Alignment.center,
+                height: 25.h,
+                width: 100.w,
+                color: Colors.amber,
+                child: Text("Ad space"),
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text("""👉 It is also possible for people to lower their heart rate in the long term. Many lifestyle habits can contribute to this. This can affect the heart rate during physical activity or periods of stress.
@@ -92,6 +102,13 @@ include:
 10. Practicing relaxation techniques 
 
 👉 Relaxation techniques may also have a positive effect on stress, meditation could improve psychological well-being.""",style: TextStyle(color: Colors.white,fontSize: 19.sp),),
+              ),
+              Container(
+                alignment: Alignment.center,
+                height: 25.h,
+                width: 100.w,
+                color: Colors.amber,
+                child: Text("Ad space"),
               ),
             ],
           ),
